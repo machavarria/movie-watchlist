@@ -1,0 +1,45 @@
+<!-- Used chatgpt to help with some of the syntax code since I'm still getting the hang of using %><% in ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= user.local.email %>'s Watchlist</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <h1><%= user.local.email %>'s Movie Watchlist</h1>
+  </header>
+
+  <div class="container">
+    <form class="add-movie-form" action="/movies" method="POST">
+      <input type="text" name="title" placeholder="Movie Title" required>
+      <input type="text" name="year" placeholder="Year" required>
+      <input type="text" name="genre" placeholder="Genre" required>
+      <input type="text" name="poster" placeholder="Poster URL" required>
+      <button type="submit">Add Movie</button>
+    </form>
+
+    <% if (movies.length === 0) { %>
+      <p style="text-align:center;">No movies yet! Add some to get started.</p>
+    <% } else { %>
+      <div class="movies-container">
+        <% movies.forEach(function(movie) { %>
+          <div class="movie-card">
+            <img src="<%= movie.poster %>" alt="<%= movie.title %> Poster">
+            <div class="info">
+              <h3><%= movie.title %> (<%= movie.year %>)</h3>
+              <p>Genre: <%= movie.genre %></p>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    <% } %>
+
+    <div class="logout">
+      <a href="/logout">Logout</a>
+    </div>
+  </div>
+</body>
+</html>
