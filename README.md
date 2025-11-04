@@ -18,12 +18,6 @@ User can Login/Sign up to make an account for the Movie Watchlist App and from t
 - How to set up an Express server and define routes for different pages.
 - How to loop through arrays and display data using <% %> and <%= %> syntax.
 
-```
-I completed the challenge: 5
-I feel good about my code: 4
-Open for any feedback.
-```
-
 ## Installation
 
 1. Clone repo
